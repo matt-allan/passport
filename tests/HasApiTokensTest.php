@@ -42,7 +42,7 @@ class HasApiTokensTestStub
 {
     use HasApiTokens;
 
-    public function getKey()
+    public function getAuthIdentifier()
     {
         return 1;
     }

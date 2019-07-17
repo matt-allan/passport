@@ -99,12 +99,12 @@ class AuthorizationController
      * Approve the authorization request.
      *
      * @param  \League\OAuth2\Server\RequestTypes\AuthorizationRequest  $authRequest
-     * @param  \Illuminate\Database\Eloquent\Model  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return \Illuminate\Http\Response
      */
     protected function approveRequest($authRequest, $user)
     {
-        $authRequest->setUser(new User($user->getKey()));
+        $authRequest->setUser(new User($user->getAuthIdentifier()));
 
         $authRequest->setAuthorizationApproved(true);
 
