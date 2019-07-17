@@ -153,4 +153,9 @@ class BridgeClientRepositoryTestClientStub
     {
         return $this->personal_access_client || $this->password_client;
     }
+
+    public function confidential()
+    {
+        return ! is_null($this->secret);
+    }
 }
